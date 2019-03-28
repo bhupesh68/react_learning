@@ -23,11 +23,9 @@ class SongsList extends React.Component {
       return <div className="SongsList">{this.renderList()}</div>;
   }
 }
-
 //map all our data to properties and show inside the SongsList method above
 const mapStateToProps = state => {
   return {songs:state.songs}; //must match with the combine reducer
 }
-
 //connect is used to fetch data from the store/provider
 export default connect(mapStateToProps, {selectSong})(SongsList);

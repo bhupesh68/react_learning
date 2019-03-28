@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchPosts} from '../actions';
+import {fetchPostsAndUsers} from '../actions';
 import UserHeader from './userHeader';
 
 //import JSONPlaceholder from './apis';
 
 class PostsList extends React.Component {
   componentDidMount (){
-    this.props.fetchPosts();
+    //this.props.fetchPosts();
+    this.props.fetchPostsAndUsers();
   }
   //1. return async 2.response = await get.axios(/posts)
   renderList(){
@@ -20,12 +21,10 @@ class PostsList extends React.Component {
     )
   };
   render(){
-    console.log(this.props.posts);
     return <div>{this.renderList()}</div>
   };
 }
-
 const mapStateToProps = state => {
   return {posts:state.posts};  //state.posts because conbineReducer has posts as key
 }
-export default connect(mapStateToProps, {fetchPosts})(PostsList);
+export default connect(mapStateToProps, {fetchPostsAndUsers})(PostsList);
