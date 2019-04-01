@@ -23,7 +23,9 @@ const Header = () => {
               <a className="nav-link" href="#"><span className="fas fa-user" /> Sign Up</a>
             </li>
             <li className="nav-item">
-              <Link to="/googauth" className="nav-link"><span className="fas fa-sign-in-alt" /><GoogAuth /></Link>
+              <Link to="/googauth" className="nav-link"><span className="fas fa-sign-in-alt" />
+                <GoogAuth />
+              </Link>
             </li>
           </ul>
         </div>
