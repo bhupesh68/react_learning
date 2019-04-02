@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import GoogAuth from './GoogAuth';
 //import Routes from './Routes';
-//import { Nav, NavItem, Navbar } from 'react-bootstrap';
+import { Nav, NavItem, Navbar } from 'react-bootstrap';
 //
 const Header = () => {
   return (
