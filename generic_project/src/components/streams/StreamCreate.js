@@ -1,5 +1,10 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
+import reduxThunk from 'redux-thunk';
+import {connect} from 'react-redux';
+
+import {createStream} from '../../actions';
+
 //import Button from 'react-bootstrap/lib/Button';
 import {Form, FormControl, FormGroup, ControlLabel, Col, Button, Tooltip, OverlayTrigger} from 'react-bootstrap';
 
@@ -25,9 +30,8 @@ class StreamCreate extends React.Component {
         );
   }
 
-  onSubmit(formValues){
-    //event.preventDefault();
-
+  onSubmit = formValues => {
+    this.props.createStream(formValues);
   }
 
   render() {
@@ -36,11 +40,7 @@ class StreamCreate extends React.Component {
                 <Field name="title" component={this.renderInput} label = "Enter Title"/>
                 <Field name="description" component={this.renderInput} label = "Description"/>
                 <button className="button primary">Submit</button>
-                    <FormGroup controlId="formBasicEmail">
-                      <Form.Label>Email address</Form.Label>
-                      <FormControl type="email" placeholder="Enter email" />
-                    </FormGroup>
-            </form>
+              </form>
           </div>
   }
 }
@@ -56,7 +56,9 @@ const validate = formValues =>{
   return errors;
 }
 
-export default reduxForm(
+const formWrapped = reduxForm(
               {form:'StreamCreate',
                validate       //validate:validate
               })(StreamCreate);
+
+export default connect(null, {createStream})(formWrapped);
