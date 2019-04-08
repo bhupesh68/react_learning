@@ -9,7 +9,7 @@ class StreamList extends React.Component {
   componentDidMount(){
     this.props.fetchStreams();
   }
-  renderAdmin = (stream) => {
+  renderAdmin = stream => {
     if(stream.userId === this.props.currentUserId){
         return (
           <div className="right floated content">
@@ -34,7 +34,7 @@ class StreamList extends React.Component {
               {this.renderAdmin(stream)}
             <i className="large middle aligned icon camera" />
             <div className="content">
-              <Link to={`/streams/$stream.id`}>
+              <Link to={`/streams/${stream.id}`}>
                 {stream.title}
               </Link>
               <div className="description">{stream.description}</div>
