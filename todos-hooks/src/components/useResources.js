@@ -14,7 +14,9 @@ const useResources = resource => {
         }
       )(resource);
   },[resource])
-
+  //[] avoids infinite calls to API by calling inner function
+  //only when value in second arguement with in useEffect changes
+  //cant use async directly insise the inner functionm
   return resources;
 
 }

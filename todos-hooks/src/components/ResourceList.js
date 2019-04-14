@@ -6,10 +6,12 @@ const ResourceList = ({resource}) => {
   //only when value in second arguement with in useEffect changes
   //cant use async directly insise the inner functionm
   const resources = useResources(resource);
+
   return <div>
             <ul>
               {resources.map(record =>
                 <li>
+                {record.name}
                 {record.title}
                 </li>)
               }
